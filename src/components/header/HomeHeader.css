@@ -1,0 +1,38 @@
+.home-header__container {
+  min-height: 50px;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0b5e56;
+  color: white;
+}
+
+.home-header__container h1 {
+  font-size: 1.5rem;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+}
+
+.header__logo {
+  min-width: fit-content;
+  transition: all 0.3s linear;
+}
+
+.header__logo:hover {
+  color: yellow;
+}
+
+/* .header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+} */
