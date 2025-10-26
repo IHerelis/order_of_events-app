@@ -1,0 +1,15 @@
+.task-list__container {
+  padding: 10px 20px;
+}
+
+.task-list__container h1 {
+  font-size: 1.5rem;
+}
+
+.task-list {
+  padding: 5px 10px;
+}
+
+.task-list :not(:last-child) {
+  margin-bottom: 5px;
+}
