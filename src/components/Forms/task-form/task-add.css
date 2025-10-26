@@ -1,0 +1,62 @@
+.task-add__container {
+  padding-block: 10px;
+  max-width: 600px;
+}
+
+/* ==== Form add===== */
+
+.task-form {
+  padding: 12px;
+  border: 2px solid brown;
+  border-radius: 10px;
+}
+
+.task-form__field {
+  padding-block: 5px;
+  display: flex;
+  gap: 5px;
+}
+
+.task-form__field label {
+  padding: 5px;
+}
+
+.task-form__field input {
+  padding: 3px 5px;
+  min-width: 45%;
+  border-radius: 5px;
+}
+
+.task-form__field textarea {
+  padding: 3px 5px;
+  min-width: 70%;
+  min-height: 55px;
+  border-radius: 5px;
+}
+
+.task-form-error {
+  color: red;
+  padding-bottom: 10px;
+  margin-left: 20%;
+}
+
+.task-form__add {
+  padding: 12px;
+}
+
+.task-btn__submit {
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgb(15, 149, 15);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  min-width: 250px;
+  font-size: 18px;
+}
+
+.task-btn__submit:hover {
+  background-color: rgb(15, 107, 15);
+}

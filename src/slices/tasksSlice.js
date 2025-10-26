@@ -1,0 +1,39 @@
+import { createSlice } from "@reduxjs/toolkit";
+import { nanoid } from "nanoid";
+
+const initialState = {
+  taskList: JSON.parse(localStorage.getItem('TaskList')) || [
+    {
+      id: 1,
+      taskTitle: 'Weakup',
+      done: true
+    },
+    {
+      id: 2,
+      taskTitle: 'Sport',
+      done: true
+    },
+    {
+      id: 3,
+      taskTitle: 'Work',
+      done: false
+    },
+  ],
+}
+
+
+export const TasksSlice = createSlice({
+  name: "tasks",
+  initialState,
+  reducers: {
+    addTask: (state, action) => {
+      action.payload.id = nanoid();
+      state.taskList.push(action.payload);
+      localStorage.setItem("TaskList", JSON.stringify(state.taskList));
+    },
+  }
+})
+
+
+export const {addTask} = TasksSlice.actions;
+export default TasksSlice.reducer;
