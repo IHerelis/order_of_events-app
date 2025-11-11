@@ -1,14 +1,15 @@
 .task-add__container {
   padding-block: 10px;
   max-width: 600px;
+  margin: 0 auto;
 }
 
 /* ==== Form add===== */
 
 .task-form {
   padding: 12px;
-  border: 2px solid brown;
   border-radius: 10px;
+  box-shadow: 0px 0px 10px rgb(40, 141, 40);
 }
 
 .task-form__field {
@@ -22,8 +23,10 @@
 }
 
 .task-form__field input {
-  padding: 3px 5px;
+  padding: 9px 10px;
   min-width: 45%;
+  border: 1px solid grey;
+  box-shadow: 2px 2px 5px grey;
   border-radius: 5px;
 }
 
@@ -31,6 +34,8 @@
   padding: 3px 5px;
   min-width: 70%;
   min-height: 55px;
+  border: 1px solid grey;
+  box-shadow: 2px 2px 5px grey;
   border-radius: 5px;
 }
 
@@ -49,7 +54,7 @@
   padding: 10px 15px;
   border: none;
   border-radius: 8px;
-  background-color: rgb(15, 149, 15);
+  background-color: rgb(40, 141, 40);
   color: white;
   cursor: pointer;
   transition: all 0.3s linear;
@@ -58,5 +63,5 @@
 }
 
 .task-btn__submit:hover {
-  background-color: rgb(15, 107, 15);
+  background-color: rgb(40, 121, 40);
 }

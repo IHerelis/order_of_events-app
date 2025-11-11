@@ -1,5 +1,7 @@
 .task-list__container {
-  padding: 10px 20px;
+  max-width: 1020px;
+  padding: 10px 15px;
+  margin: 0 auto;
 }
 
 .task-list__container h1 {
@@ -8,8 +10,14 @@
 
 .task-list {
   padding: 5px 10px;
+  /* counter-reset: item; */
 }
 
-.task-list :not(:last-child) {
-  margin-bottom: 5px;
+/* .task-list li::before {
+  counter-increment: item;
+  content: counter(item, decimal-leading-zero);
+} */
+
+.task-list > :not(:last-child) {
+  margin-bottom: 10px;
 }

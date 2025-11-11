@@ -2,6 +2,7 @@ import React from 'react';
 import './TaskList.css';
 import { useSelector } from 'react-redux';
 import TaskAdd from '../Forms/task-form/task-add';
+import TaskItem from './TaskItem';
 
 
 const TaskList = () => {
@@ -14,12 +15,10 @@ const TaskList = () => {
       <TaskAdd /> 
       <h1>Task list</h1>
       <ul className='task-list'>
-        {taskList && taskList.map((item) => (
-          <li key={item.id}>
-            {item.taskTitle}
-            {item.taskNote && <span>"{item.taskNote}"</span>}
-          </li>
-        ))}
+        {taskList && taskList.map((item) => <TaskItem {...item}
+          key={item.id}
+          />
+        )}
       </ul>
     </div>
   );

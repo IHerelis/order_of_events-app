@@ -1,0 +1,50 @@
+.task-item {
+  padding: 5px 9px;
+  /* background-color: oldlace; */
+  box-shadow: 1px 2px 3px 2px rgb(40, 141, 40, 0.54);
+  /* border-top: 1px solid grey; */
+  display: flex;
+  gap: .9375rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-item__data {
+
+}
+
+.task-item__data__title {
+
+}
+
+.task-item__data__note {
+
+}
+
+.task-item__management {
+  display: flex;
+  gap: 15px;
+}
+
+.task-item__management button {
+  padding: 5px 9px;
+  color: white;
+  border-radius: 5px;
+  transition: all 0.2s linear;
+}
+
+.task-item__management button:hover {
+  transform: scale(1.05);
+}
+
+.task-item .task-btn__progress {
+  background-color: rgb(120, 167, 33);
+}
+
+.task-item .task-btn__done {
+  background-color: rgb(40, 141, 40);
+}
+
+.task-item .task-btn__del {
+  background-color: rgb(207, 65, 65);
+}

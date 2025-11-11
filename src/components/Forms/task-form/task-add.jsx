@@ -15,6 +15,8 @@ const TaskAdd = () => {
       taskTitle: "",
       taskNote: "",
       done: false,
+      status: "new",
+      isImportant: false,
   }
 
   const submitHandler = (values, formikBag) => {
