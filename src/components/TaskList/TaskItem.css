@@ -9,17 +9,17 @@
   justify-content: space-between;
 }
 
-.task-item__data {
+/* .task-item__data {
 
-}
+} */
 
-.task-item__data__title {
+/* .task-item__data__title {
 
-}
+} */
 
-.task-item__data__note {
+/* .task-item__data__note {
 
-}
+} */
 
 .task-item__management {
   display: flex;
@@ -47,4 +47,27 @@
 
 .task-item .task-btn__del {
   background-color: rgb(207, 65, 65);
+}
+
+
+/* staly task__done */
+
+.task-item.task--done {
+  box-shadow: 1px 2px 3px 2px rgb(123, 123, 123, 0.54);
+}
+
+.task-item__data__title.task--done {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.task-item__data__note.task--done {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.task-item .task-btn__done.task--done {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: grey;
 }

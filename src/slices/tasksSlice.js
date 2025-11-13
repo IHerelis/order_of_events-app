@@ -6,17 +6,17 @@ const initialState = {
     {
       id: 1,
       taskTitle: 'Weakup',
-      done: true
+      done: false,
     },
     {
       id: 2,
       taskTitle: 'Sport',
-      done: true
+      done: false,
     },
     {
       id: 3,
       taskTitle: 'Work',
-      done: false
+      done: false,
     },
   ],
 }
@@ -36,7 +36,14 @@ export const TasksSlice = createSlice({
       localStorage.setItem("TaskList", JSON.stringify(state.taskList));
     },
     completeTask: (state, action) => {
-
+      state.taskList.map((item) => {
+        if (item.id === action.payload.id) {
+          item.done = true;
+          console.log("ToComplecte item", item);
+          localStorage.setItem("TaskList", JSON.stringify(state.taskList));
+          return;
+        }
+      });
     },
   }
 })
