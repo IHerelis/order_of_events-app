@@ -39,7 +39,16 @@ export const TasksSlice = createSlice({
       state.taskList.map((item) => {
         if (item.id === action.payload.id) {
           item.done = true;
-          console.log("ToComplecte item", item);
+          item.status = "done";
+          localStorage.setItem("TaskList", JSON.stringify(state.taskList));
+          return;
+        }
+      });
+    },
+    progressTask: (state, action) => {
+      state.taskList.map((item) => {
+        if (item.id === action.payload.id) {
+          item.status = "progress";
           localStorage.setItem("TaskList", JSON.stringify(state.taskList));
           return;
         }
@@ -49,5 +58,5 @@ export const TasksSlice = createSlice({
 })
 
 
-export const {addTask, removeTask, completeTask} = TasksSlice.actions;
+export const {addTask, removeTask, completeTask, progressTask} = TasksSlice.actions;
 export default TasksSlice.reducer;

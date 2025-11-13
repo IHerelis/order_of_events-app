@@ -1,8 +1,6 @@
 .task-item {
   padding: 5px 9px;
-  /* background-color: oldlace; */
   box-shadow: 1px 2px 3px 2px rgb(40, 141, 40, 0.54);
-  /* border-top: 1px solid grey; */
   display: flex;
   gap: .9375rem;
   align-items: center;
@@ -50,7 +48,7 @@
 }
 
 
-/* staly task__done */
+/* style task--done */
 
 .task-item.task--done {
   box-shadow: 1px 2px 3px 2px rgb(123, 123, 123, 0.54);
@@ -66,8 +64,31 @@
   opacity: 0.5;
 }
 
-.task-item .task-btn__done.task--done {
+.task-btn__progress.task--done {
   opacity: 0.5;
   cursor: not-allowed;
   background-color: grey;
+}
+
+.task-btn__done.task--done {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: grey;
+}
+
+/* style task--processing */
+
+.task-item.task--processing {
+  box-shadow: 1px 2px 3px 2px rgb(120, 167, 33, 0.54);
+}
+
+.task-item__data__title.task--processing {
+  opacity: 0.75;
+  text-decoration: underline;
+}
+
+.task-btn__progress.task--processing {
+  cursor: not-allowed;
+  color: yellow;
+  background-color: rgb(40, 141, 40);
 }

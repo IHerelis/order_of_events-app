@@ -15,7 +15,7 @@ const TaskAdd = () => {
       taskTitle: "",
       taskNote: "",
       done: false,
-      status: "new",
+      status: "new",                    /* "new", "progress" , "done" */
       isImportant: false,
   }
 
