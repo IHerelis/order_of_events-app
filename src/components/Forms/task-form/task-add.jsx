@@ -16,6 +16,7 @@ const TaskAdd = () => {
       taskNote: "",
       done: false,
       status: "new",                    /* "new", "progress" , "done" */
+      group: "",
       isImportant: false,
   }
 
