@@ -35,8 +35,8 @@ const TaskList = () => {
       {!taskList.length &&
         <h2 className='todo-promotion'>Додавайте завдання і вперед !</h2>
       }
-      {taskList.length &&
-        <>
+      {taskList.length > 0 && 
+      <>
           <TaskFilterStatus updateFilterStatus={updateFilterStatus} filterStatusMap={filterStatusMap} filterStatus={filterStatus} />
           <ul className='task-list'>
             {taskList && taskList.filter(filterStatusMap[filterStatus]).map((item) => <TaskItem {...item}
