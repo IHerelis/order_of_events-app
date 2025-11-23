@@ -8,10 +8,11 @@ import TaskFilterStatus from '../Filters/TaskFilterStatus';
 
 const filterStatusMap = {
   All: () => true,
-  Progress: (task) => task.status === "progress",
-  Done: (task) => task.done,
-  NotDone: (task) => !task.done,
   TaskNew: (task) => task.status === "new",
+  Progress: (task) => task.status === "progress",
+  TaskImportant: (task) => task.taskImportant,
+  NotDone: (task) => !task.done,
+  Done: (task) => task.done,
 };
 
 
@@ -31,13 +32,20 @@ const TaskList = () => {
   return (
     <div className='task-list__container'>
       <TaskAdd /> 
-      <TaskFilterStatus updateFilterStatus={updateFilterStatus} filterStatusMap={filterStatusMap} filterStatus={filterStatus} />
-      <ul className='task-list'>
-        {taskList && taskList.filter(filterStatusMap[filterStatus]).map((item) => <TaskItem {...item}
-          key={item.id}
-          />
-        )}
-      </ul>
+      {!taskList &&
+        <h2 className='todo-promotion'>Додавайте завдання і вперед !</h2>
+      }
+      {taskList &&
+        <>
+          <TaskFilterStatus updateFilterStatus={updateFilterStatus} filterStatusMap={filterStatusMap} filterStatus={filterStatus} />
+          <ul className='task-list'>
+            {taskList && taskList.filter(filterStatusMap[filterStatus]).map((item) => <TaskItem {...item}
+              key={item.id}
+              />
+            )}
+          </ul>
+        </>
+      }
     </div>
   );
 }

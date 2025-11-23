@@ -93,3 +93,10 @@
   color: yellow;
   background-color: rgb(40, 141, 40);
 }
+
+/* style  task--important */
+
+.task-item__data .task--important {
+  font-weight: 600;
+  /* font-size: 18px; */
+}

@@ -4,10 +4,11 @@ import './TaskFilterStatus.css';
 
 const filterAdaptive = {
   All: "всі",
-  Progress: "в роботі",
-  Done: "виконані",
-  NotDone: "не виконані",
   TaskNew: "нові",
+  Progress: "в роботі",
+  TaskImportant: "важливі",
+  NotDone: "не виконані",
+  Done: "виконані",
 }
 
 const TaskFilterStatus = ({updateFilterStatus, filterStatusMap , filterStatus}) => {

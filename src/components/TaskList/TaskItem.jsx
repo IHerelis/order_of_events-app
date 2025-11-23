@@ -38,7 +38,7 @@ const TaskItem = (item) => {
   return (
     <li className={classNames('task-item', {'task--done' : isDone, 'task--processing' : item.status === "progress"})}>
       <div className="task-item__data">
-        <div className={classNames('task-item__data__title', {'task--done' : isDone, 'task--processing' : item.status === "progress"})}>
+        <div className={classNames('task-item__data__title', {'task--done' : isDone, 'task--processing' : item.status === "progress", 'task--important' : item.taskImportant})}>
           {item.taskTitle}
         </div>
         {item.taskNote && 

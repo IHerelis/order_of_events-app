@@ -11,6 +11,6 @@
 }
 
 .filter-status__wrapper .active {
-  background-color: rgb(87, 87, 233);
-  color: white;
+  background-color: rgb(92, 173, 248);
+  font-weight: 600;
 }

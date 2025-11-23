@@ -2,23 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { nanoid } from "nanoid";
 
 const initialState = {
-  taskList: JSON.parse(localStorage.getItem('TaskList')) || [
-    {
-      id: 1,
-      taskTitle: 'Weakup',
-      done: false,
-    },
-    {
-      id: 2,
-      taskTitle: 'Sport',
-      done: false,
-    },
-    {
-      id: 3,
-      taskTitle: 'Work',
-      done: false,
-    },
-  ],
+  taskList: JSON.parse(localStorage.getItem('TaskList')) || [],
 }
 
 

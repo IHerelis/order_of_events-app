@@ -14,12 +14,13 @@
 
 .task-form__field {
   padding-block: 5px;
-  display: flex;
-  gap: 5px;
+  /* display: flex;
+  gap: 5px; */
 }
 
 .task-form__field label {
   padding: 5px;
+  display: none;
 }
 
 .task-form__field input {
@@ -32,11 +33,48 @@
 
 .task-form__field textarea {
   padding: 3px 5px;
-  min-width: 70%;
+  min-width: 100%;
   min-height: 55px;
   border: 1px solid grey;
   box-shadow: 2px 2px 5px grey;
   border-radius: 5px;
+}
+
+.task-form__field-important {
+  display: flex;
+  gap: 5px;
+  /* flex-direction: column; */
+  padding: 5px;
+  width: fit-content;
+}
+
+.task-form__field-important input {
+  display: none;
+}
+
+.task-form__field-important label {
+  cursor: pointer;
+  display: flex;
+  gap: 5px;
+  transition: all 0.25s linear;
+}
+
+.task-form__field-important label:hover {
+  color: red;
+}
+
+.task-form__field-important label::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid grey;
+  background-color: white;
+}
+
+.task-form__field-important input[type="checkbox"]:checked + label::before {
+  background: url(../../../assets/check-mark-3-16.png) center / 16px no-repeat;
+  border: 1.5px solid green;
 }
 
 .task-form-error {

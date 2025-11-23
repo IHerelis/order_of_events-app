@@ -4,10 +4,19 @@
   margin: 0 auto;
 }
 
+.todo-promotion {
+  padding: 15px 20px;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 24px;
+  color: green;
+  box-shadow: 1px 2px 3px 2px rgb(40, 141, 40, 0.54);
+}
+
 .task-list {
   padding: 1rem;
-  border: 2px solid rgb(25, 117, 174);
-  border-radius: 5px 12px 20px 20px;
+  border: 2px solid rgb(92, 173, 248);
+  border-radius: 5px 15px 15px 15px;
   /* counter-reset: item; */
 }
 

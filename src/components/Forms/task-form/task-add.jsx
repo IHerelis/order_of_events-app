@@ -7,17 +7,17 @@ import { addTask } from '../../../slices/tasksSlice';
 
 
 const TaskAdd = () => {
-  console.log("TaskAdd");
+  // console.log("TaskAdd");
   const dispatch = useDispatch();
 
 
   const initialValues = {
       taskTitle: "",
       taskNote: "",
+      taskImportant: false,
       done: false,
-      status: "new",                    /* "new", "progress" , "done" */
-      group: "",
-      isImportant: false,
+      status: "new",                    /* "new", "progress" , "not_done", "done" */
+      group: "",                        /* "...user task group" */
   }
 
   const submitHandler = (values, formikBag) => {
@@ -45,15 +45,20 @@ const TaskAdd = () => {
 
               <div className='task-form__field'>
                 <label htmlFor="form__field__task">Task:</label>
-                <Field type='text' name='taskTitle' id='form__field__task' />
+                <Field type='text' name='taskTitle' id='form__field__task' placeholder='Щоплануєте робити ?' />
               </div>
               <ErrorMessage name="taskTitle" component="div" className='task-form-error' />
 
               <div className='task-form__field'>
                 <label htmlFor="form__field__task-note">Task note:</label>
-                <Field as='textarea' type='text' name='taskNote' id='form__field__task-note' />
+                <Field as='textarea' type='text' name='taskNote' id='form__field__task-note' placeholder='Додайте коментар до завдання !' />
               </div>
               <ErrorMessage name="taskNote" component="div" className='task-form-error' />
+
+              <div className='task-form__field-important'>
+                <Field type='checkbox' name='taskImportant' id='form__field__task-important' />
+                <label htmlFor="form__field__task-important">Важливе ?</label>
+              </div>
               
               <div className='task-form__add'>
                 <Field type='submit' value='add task' id='addTask'
