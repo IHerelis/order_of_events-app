@@ -3,9 +3,6 @@ import App from "../App";
 import HomePage from "../components/pages/home-page/HomePage";
 
 export const router = createBrowserRouter (
-  {
-    basename: '/order_of_events-app'
-  },
   [
     {
       path: '/',
@@ -18,4 +15,8 @@ export const router = createBrowserRouter (
         },
       ]
     }
-  ]);
+  ],
+  {
+    basename: '/order_of_events-app'
+  }
+);
