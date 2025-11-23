@@ -32,10 +32,10 @@ const TaskList = () => {
   return (
     <div className='task-list__container'>
       <TaskAdd /> 
-      {!taskList &&
+      {!taskList.length &&
         <h2 className='todo-promotion'>Додавайте завдання і вперед !</h2>
       }
-      {taskList &&
+      {taskList.length &&
         <>
           <TaskFilterStatus updateFilterStatus={updateFilterStatus} filterStatusMap={filterStatusMap} filterStatus={filterStatus} />
           <ul className='task-list'>
