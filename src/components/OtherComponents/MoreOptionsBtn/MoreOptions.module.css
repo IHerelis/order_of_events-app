@@ -1,0 +1,31 @@
+.more__options__wrapper {
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 0px 1px 3px 2px rgb(213, 213, 213);
+  transition: all 0.2s linear;
+}
+
+.more__options__wrapper:hover {
+  box-shadow: 0px -1px 3px 2px  rgb(213, 213, 213);
+}
+
+.more__options__btn {
+  max-width: fit-content;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.more__options__btn button {
+  color: grey;
+}
+
+.more__options__btn button:hover {
+  color: black;
+}

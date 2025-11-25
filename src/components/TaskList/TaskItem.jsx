@@ -3,6 +3,7 @@ import './TaskItem.css';
 import { completeTask, progressTask, removeTask } from '../../slices/tasksSlice';
 import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
+import MoreOptions from '../OtherComponents/MoreOptionsBtn/MoreOptions';
 
 
 const TaskItem = (item) => {
@@ -65,6 +66,7 @@ const TaskItem = (item) => {
         >
           delete
         </button>
+        <MoreOptions item={item} />
       </div>
     </li>
   );
