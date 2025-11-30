@@ -73,7 +73,7 @@
 }
 
 .task-form__field-important input[type="checkbox"]:checked + label::before {
-  background: url(../../../assets/check-mark-3-16.png) center / 16px no-repeat;
+  background: url(../../../assets/icons/check-mark-3-16.png) center / 16px no-repeat;
   border: 1.5px solid green;
 }
 
@@ -101,5 +101,26 @@
 }
 
 .task-btn__submit:hover {
+  background-color: rgb(40, 121, 40);
+}
+
+.task-form__update {
+  padding: 12px;
+}
+
+.task-btn__update {
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgb(40, 141, 40);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  min-width: 250px;
+  font-size: 18px;
+}
+
+.task-btn__update:hover {
   background-color: rgb(40, 121, 40);
 }

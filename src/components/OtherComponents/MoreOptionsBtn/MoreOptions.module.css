@@ -14,7 +14,7 @@
   box-shadow: 0px -1px 3px 2px  rgb(213, 213, 213);
 }
 
-.more__options__btn {
+.more__options {
   max-width: fit-content;
   padding: 3px;
   display: flex;
@@ -22,10 +22,10 @@
   justify-content: center;
 }
 
-.more__options__btn button {
+.more__options button {
   color: grey;
 }
 
-.more__options__btn button:hover {
+.more__options button:hover {
   color: black;
 }

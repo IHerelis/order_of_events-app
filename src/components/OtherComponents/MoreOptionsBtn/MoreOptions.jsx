@@ -3,21 +3,24 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import React from 'react';
 import styles from './MoreOptions.module.css';
 import { useDispatch } from 'react-redux';
+import ModalUpdateTask from '../ModalUpdateTask/ModalUpdateTask';
+import { removeTask } from '../../../slices/tasksSlice';
 
 
 const MoreOptions = ({item}) => {
 
   const dispatch = useDispatch();
 
+
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
-  const handleMenu = (event) => {
+  const handleMenu = (e) => {
     setOpen((open) => !open);
   };
 
-  const handleClose = (event) => {
-    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+  const handleClose = (e) => {
+    if (anchorRef.current && anchorRef.current.contains(e.target)) {
       return;
     }
 
@@ -30,7 +33,7 @@ const MoreOptions = ({item}) => {
     const userSure = confirm("Confirm deletion");
 
     if (userSure) {
-      
+      dispatch(removeTask(item))
       console.log("deleteItem", item);
     }
   };
@@ -43,7 +46,7 @@ const MoreOptions = ({item}) => {
 
   return (
     <div className={styles.more__options__wrapper}>
-      <div className={styles.more__options__btn}>
+      <div className={styles.more__options}>
         <IconButton
           onClick={handleMenu}
           size="large"
@@ -80,7 +83,9 @@ const MoreOptions = ({item}) => {
                     id="more-actions-menu"
                     aria-labelledby="more-actions-button"
                   >
-                    <MenuItem onClick={handleUpdate}>Update</MenuItem>
+                    <MenuItem>
+                      <ModalUpdateTask onClick={handleUpdate} task={item} />
+                    </MenuItem>
                     <MenuItem onClick={handleDelete}>Delete</MenuItem>
                     {/* <MenuItem onClick={handleClose}>Cancel</MenuItem> */}
                   </MenuList>

@@ -19,6 +19,14 @@ export const TasksSlice = createSlice({
       state.taskList = state.taskList.filter(task => task.id !== action.payload.id);
       localStorage.setItem("TaskList", JSON.stringify(state.taskList));
     },
+    upDateTask: (state, action) => {
+      state.taskList = state.taskList.map(task => {
+        if (task.id === action.payload.id) 
+          {return task = action.payload} else {return task}
+        }
+      );
+      localStorage.setItem("TaskList", JSON.stringify(state.taskList));
+    },
     completeTask: (state, action) => {
       state.taskList.map((item) => {
         if (item.id === action.payload.id) {
@@ -42,5 +50,5 @@ export const TasksSlice = createSlice({
 })
 
 
-export const {addTask, removeTask, completeTask, progressTask} = TasksSlice.actions;
+export const {addTask, removeTask, upDateTask, completeTask, progressTask} = TasksSlice.actions;
 export default TasksSlice.reducer;
