@@ -1,6 +1,6 @@
 import { ClickAwayListener, Grow, IconButton, MenuItem, MenuList, Paper, Popper } from '@mui/material';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './MoreOptions.module.css';
 import { useDispatch } from 'react-redux';
 import ModalUpdateTask from '../ModalUpdateTask/ModalUpdateTask';
@@ -10,6 +10,11 @@ import { removeTask } from '../../../slices/tasksSlice';
 const MoreOptions = ({item}) => {
 
   const dispatch = useDispatch();
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModal = () => {
+    setShowModal(!showModal);
+  }
 
 
   const [open, setOpen] = React.useState(false);
@@ -28,7 +33,7 @@ const MoreOptions = ({item}) => {
   };
 
 
-  const handleDelete = (e) => {
+  const handleDeleteTask = (e) => {
     handleClose(e);
     const userSure = confirm("Confirm deletion");
 
@@ -38,13 +43,8 @@ const MoreOptions = ({item}) => {
     }
   };
 
-  const handleUpdate = (e) => {
-    handleClose(e);
 
-  };
-
-
-  return (
+  return (  
     <div className={styles.more__options__wrapper}>
       <div className={styles.more__options}>
         <IconButton
@@ -60,6 +60,7 @@ const MoreOptions = ({item}) => {
         >
           <MoreIcon />
         </IconButton>
+        <ModalUpdateTask task={item} showModal={showModal} handleShowModal={handleShowModal} />
         <Popper
           open={open}
           anchorEl={anchorRef.current}
@@ -83,10 +84,8 @@ const MoreOptions = ({item}) => {
                     id="more-actions-menu"
                     aria-labelledby="more-actions-button"
                   >
-                    <MenuItem>
-                      <ModalUpdateTask onClick={handleUpdate} task={item} />
-                    </MenuItem>
-                    <MenuItem onClick={handleDelete}>Delete</MenuItem>
+                    <MenuItem onClick={() => handleShowModal()}>Update</MenuItem>
+                    <MenuItem onClick={handleDeleteTask}>Delete</MenuItem>
                     {/* <MenuItem onClick={handleClose}>Cancel</MenuItem> */}
                   </MenuList>
                 </ClickAwayListener>

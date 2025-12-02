@@ -15,7 +15,7 @@ const initialValues = {
 }                   
 
 
-const TaskAdd = ({task, handleClose}) => {
+const TaskAdd = ({task, handleShowModal}) => {
   // console.log("TaskAdd");
   // console.log("task on TaskAdd", task);
   const dispatch = useDispatch();
@@ -34,6 +34,7 @@ const TaskAdd = ({task, handleClose}) => {
 
 
   const submitHandler = (values, formikBag) => {
+    console.log("onSubmit", values);
 
     if (!values.id) {
         // console.log("submit values", values);
@@ -43,7 +44,7 @@ const TaskAdd = ({task, handleClose}) => {
           // console.log("update values", values);
           dispatch(upDateTask(values));
           formikBag.resetForm();  
-          handleClose();
+          handleShowModal();
         }  
   };
 
@@ -84,15 +85,15 @@ const TaskAdd = ({task, handleClose}) => {
 
               {!task ? 
                 <div className='task-form__add'>
-                  <Field type='submit' value='add task' id='addTask'
-                    className={'task-btn__submit'}
-                  />
+                  <button type='submit' id='addTask' className={'task-btn__submit'}>
+                    add task
+                  </button>  
                 </div>
                 :
                 <div className='task-form__update'>
-                  <Field type='submit' value='update task' id='upDateTask'
-                    className={'task-btn__update'}
-                  />
+                  <button type='submit' id='upDateTask' className={'task-btn__update'}>
+                    update task
+                  </button>
                 </div>
               }
 
