@@ -1,7 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from "yup";
 import './task-add.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTask, upDateTask } from '../../../slices/tasksSlice';
 
@@ -18,6 +18,12 @@ const initialValues = {
 const TaskAdd = ({task, handleShowModal}) => {
   // console.log("TaskAdd");
   // console.log("task on TaskAdd", task);
+
+  // useEffect(() => {
+  //   console.log("change the task", task);
+  // }, [task]);
+
+  
   const dispatch = useDispatch();
 
   const [currentValues, setCarrentValues] = useState(!task ? initialValues :
@@ -34,7 +40,7 @@ const TaskAdd = ({task, handleShowModal}) => {
 
 
   const submitHandler = (values, formikBag) => {
-    console.log("onSubmit", values);
+    // console.log("onSubmit", values);
 
     if (!values.id) {
         // console.log("submit values", values);
@@ -60,6 +66,7 @@ const TaskAdd = ({task, handleShowModal}) => {
       <div className='task-form'>
         <Formik
           initialValues={currentValues}
+          enableReinitialize={true}
           onSubmit={submitHandler}
           validationSchema={TaskSchema}
         >
@@ -79,8 +86,14 @@ const TaskAdd = ({task, handleShowModal}) => {
               <ErrorMessage name="taskNote" component="div" className='task-form-error' />
 
               <div className='task-form__field-important'>
-                <Field type='checkbox' name='taskImportant' id='form__field__task-important' />
-                <label htmlFor="form__field__task-important">Важливе ?!.</label>
+                <Field 
+                  // id='form__field__task-important'
+                  id={!task ? 'form__field__task-important' : 'form__field__update-task-important'} 
+                  type='checkbox' 
+                  name='taskImportant' 
+                />
+                {/* <label htmlFor="form__field__task-important">Важливе ?!.</label> */}
+                <label htmlFor={!task ? 'form__field__task-important' : 'form__field__update-task-important'} >Важливе ?!.</label>
               </div>
 
               {!task ? 
