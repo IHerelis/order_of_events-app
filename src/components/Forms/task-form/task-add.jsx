@@ -12,10 +12,10 @@ const initialValues = {
   done: false,
   status: "new",                    /* "new", "progress" , "not_done", "done" */
   group: "",                        /* "...user task group" */
-}                   
+}
 
 
-const TaskAdd = ({task, handleShowModal}) => {
+const TaskAdd = ({task=false, handleShowModal}) => {
   // console.log("TaskAdd");
   // console.log("task on TaskAdd", task);
 
@@ -37,6 +37,15 @@ const TaskAdd = ({task, handleShowModal}) => {
       group: task.group,                      
     }
   );
+
+  const getModdedPrefixId = (task, currentID) => {
+    if (!task) {
+      return currentID;
+    } else {
+        const moddedID = `${currentID}${currentValues.id}`;
+        return moddedID;
+      }
+  }
 
 
   const submitHandler = (values, formikBag) => {
@@ -75,7 +84,7 @@ const TaskAdd = ({task, handleShowModal}) => {
 
               <div className='task-form__field'>
                 <label htmlFor="form__field__task">Task:</label>
-                <Field type='text' name='taskTitle' id='form__field__task' placeholder='Щоплануєте робити ?' />
+                <Field type='text' name='taskTitle' id='form__field__task' placeholder='Що плануєте робити ?' />
               </div>
               <ErrorMessage name="taskTitle" component="div" className='task-form-error' />
 
@@ -87,13 +96,11 @@ const TaskAdd = ({task, handleShowModal}) => {
 
               <div className='task-form__field-important'>
                 <Field 
-                  // id='form__field__task-important'
-                  id={!task ? 'form__field__task-important' : 'form__field__update-task-important'} 
+                  id={getModdedPrefixId(task, 'form__field__task-important')} 
                   type='checkbox' 
                   name='taskImportant' 
                 />
-                {/* <label htmlFor="form__field__task-important">Важливе ?!.</label> */}
-                <label htmlFor={!task ? 'form__field__task-important' : 'form__field__update-task-important'} >Важливе ?!.</label>
+                <label htmlFor={getModdedPrefixId(task, 'form__field__task-important')} >Важливе ?!.</label>
               </div>
 
               {!task ? 

@@ -33,7 +33,7 @@
 
 .task-form__field textarea {
   padding: 3px 5px;
-  min-width: 100%;
+  width: 100%;
   min-height: 55px;
   border: 1px solid grey;
   box-shadow: 2px 2px 5px grey;
