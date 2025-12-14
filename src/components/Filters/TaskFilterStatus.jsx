@@ -4,10 +4,9 @@ import './TaskFilterStatus.css';
 
 const filterAdaptive = {
   All: "всі",
+  NotDone: "не виконані",
   TaskNew: "нові",
   Progress: "в роботі",
-  TaskImportant: "важливі",
-  NotDone: "не виконані",
   Done: "виконані",
 }
 

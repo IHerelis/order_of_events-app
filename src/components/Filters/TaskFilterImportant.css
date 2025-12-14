@@ -1,31 +1,30 @@
-.filter-status__wrapper {
+.filter-important__wrapper {
   padding: 8px 16px;
   background-color: rgb(240, 238, 238);
   border-radius: 5px;
   box-shadow: 0px 0px 3px grey;
   display: flex;
   gap: 20px;
-
 }
 
-.filter-status__wrapper .btn {
+.filter-important__wrapper .btn {
   padding: 3px 8px;
   border-radius: 5px;
   background-color: rgb(212, 210, 210);
   transition: all 0.3s linear;
 }
 
-.filter-status__wrapper .btn:hover {
+.filter-important__wrapper .btn:hover {
   background-color: rgb(165, 164, 164);
   color: white;
 }
 
-.filter-status__wrapper .active {
+.filter-important__wrapper .active {
   background-color: rgb(92, 173, 248);
   font-weight: 600;
   color: white;
 }
 
-.filter-status__wrapper .active:hover {
+.filter-important__wrapper .active:hover {
   background-color: rgb(37, 130, 216);
 }

@@ -3,16 +3,21 @@ import './TaskList.css';
 import { useSelector } from 'react-redux';
 import TaskAdd from '../Forms/task-form/task-add';
 import TaskItem from './TaskItem';
-import TaskFilterStatus from '../Filters/TaskFilterStatus';
+import BlockSettingTaskList from '../Filters/BlockSettingTaskList';
 
 
 const filterStatusMap = {
   All: () => true,
+  NotDone: (task) => !task.done,
   TaskNew: (task) => task.status === "new",
   Progress: (task) => task.status === "progress",
-  TaskImportant: (task) => task.taskImportant,
-  NotDone: (task) => !task.done,
   Done: (task) => task.done,
+};
+
+const filterImportantMap = {
+  All: () => true,
+  TaskImportant: (task) => task.taskImportant,
+  TaskDontImportant: (task) => !task.taskImportant,
 };
 
 
@@ -23,9 +28,14 @@ const TaskList = () => {
   // console.log("taskList", taskList);
 
   const [filterStatus, setFilterStatus] = useState('All');
+  const [filterImportant, setFilterImportant] = useState('All');
 
   const updateFilterStatus = (itemState) => {
     setFilterStatus(itemState);
+  }
+
+  const updateFilterImportant = (itemState) => {
+    setFilterImportant(itemState);
   }
 
 
@@ -37,11 +47,17 @@ const TaskList = () => {
       }
       {taskList.length > 0 && 
       <>
-          <TaskFilterStatus updateFilterStatus={updateFilterStatus} filterStatusMap={filterStatusMap} filterStatus={filterStatus} />
+          <BlockSettingTaskList 
+            updateFilterStatus={updateFilterStatus} filterStatusMap={filterStatusMap} filterStatus={filterStatus}
+            updateFilterImportant={updateFilterImportant} filterImportantMap={filterImportantMap} filterImportant={filterImportant}
+          />
           <ul className='task-list'>
-            {taskList && taskList.filter(filterStatusMap[filterStatus]).map((item) => <TaskItem {...item}
-              key={item.id}
-              />
+            {taskList && 
+              taskList.filter(filterStatusMap[filterStatus])
+                .filter(filterImportantMap[filterImportant])
+                .map((item) => <TaskItem {...item}
+                key={item.id}
+                />
             )}
           </ul>
         </>
