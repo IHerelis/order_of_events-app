@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import './TaskList.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import TaskAdd from '../Forms/task-form/task-add';
 import TaskItem from './TaskItem';
 import BlockSettingTaskList from '../Filters/BlockSettingTaskList';
+import { updateSettingTaskList } from '../../slices/tasksSlice';
 
 
 const filterStatusMap = {
@@ -24,18 +25,22 @@ const filterImportantMap = {
 
 const TaskList = () => {
 
-  const {taskList} = useSelector((state) => (state.tasks));
-  // console.log("taskList", taskList);
+  const dispatch = useDispatch();
 
-  const [filterStatus, setFilterStatus] = useState('All');
-  const [filterImportant, setFilterImportant] = useState('All');
+  const {taskList, settingTaskList} = useSelector((state) => (state.tasks));
+  
+
+  const [filterStatus, setFilterStatus] = useState(settingTaskList.filterStatus || 'All');
+  const [filterImportant, setFilterImportant] = useState(settingTaskList.filterImportant || 'All');
 
   const updateFilterStatus = (itemState) => {
     setFilterStatus(itemState);
+    dispatch(updateSettingTaskList({...settingTaskList, filterStatus: itemState}));
   }
 
   const updateFilterImportant = (itemState) => {
     setFilterImportant(itemState);
+    dispatch(updateSettingTaskList({...settingTaskList, filterImportant: itemState}));
   }
 
 

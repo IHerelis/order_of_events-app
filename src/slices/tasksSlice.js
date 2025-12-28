@@ -3,6 +3,7 @@ import { nanoid } from "nanoid";
 
 const initialState = {
   taskList: JSON.parse(localStorage.getItem('TaskList')) || [],
+  settingTaskList: JSON.parse(localStorage.getItem('SettingTaskList')) || {},
 }
 
 
@@ -46,9 +47,15 @@ export const TasksSlice = createSlice({
         }
       });
     },
+
+
+    updateSettingTaskList: (state, action) => {
+      state.settingTaskList = action.payload;
+      localStorage.setItem("SettingTaskList", JSON.stringify(state.settingTaskList));
+    },
   }
 })
 
 
-export const {addTask, removeTask, upDateTask, completeTask, progressTask} = TasksSlice.actions;
+export const {addTask, removeTask, upDateTask, completeTask, progressTask, updateSettingTaskList} = TasksSlice.actions;
 export default TasksSlice.reducer;
