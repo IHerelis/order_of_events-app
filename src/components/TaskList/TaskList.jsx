@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import TaskAdd from '../Forms/task-form/task-add';
 import TaskItem from './TaskItem';
 import BlockSettingTaskList from '../Filters/BlockSettingTaskList';
-import { updateSettingTaskList } from '../../slices/tasksSlice';
+import { resetSettingTaskList, updateSettingTaskList } from '../../slices/tasksSlice';
 
 
 const filterStatusMap = {
@@ -43,6 +43,12 @@ const TaskList = () => {
     dispatch(updateSettingTaskList({...settingTaskList, filterImportant: itemState}));
   }
 
+  const resetAllFilters = () => {
+    dispatch(resetSettingTaskList());
+    setFilterStatus('All');
+    setFilterImportant('All');
+  }
+
 
   return (
     <div className='task-list__container'>
@@ -55,6 +61,7 @@ const TaskList = () => {
           <BlockSettingTaskList 
             updateFilterStatus={updateFilterStatus} filterStatusMap={filterStatusMap} filterStatus={filterStatus}
             updateFilterImportant={updateFilterImportant} filterImportantMap={filterImportantMap} filterImportant={filterImportant}
+            resetAllFilters={resetAllFilters}
           />
           <ul className='task-list'>
             {taskList && 

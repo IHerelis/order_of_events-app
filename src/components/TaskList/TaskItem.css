@@ -84,7 +84,7 @@
 }
 
 .task-item__data__title.task--processing {
-  opacity: 0.75;
+  /* opacity: 0.75; */
   text-decoration: underline;
 }
 

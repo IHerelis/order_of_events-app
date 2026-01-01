@@ -53,9 +53,13 @@ export const TasksSlice = createSlice({
       state.settingTaskList = action.payload;
       localStorage.setItem("SettingTaskList", JSON.stringify(state.settingTaskList));
     },
+    resetSettingTaskList: (state, action) => {
+      state.settingTaskList = {};
+      localStorage.setItem("SettingTaskList", JSON.stringify(state.settingTaskList));
+    },
   }
 })
 
 
-export const {addTask, removeTask, upDateTask, completeTask, progressTask, updateSettingTaskList} = TasksSlice.actions;
+export const {addTask, removeTask, upDateTask, completeTask, progressTask, updateSettingTaskList, resetSettingTaskList} = TasksSlice.actions;
 export default TasksSlice.reducer;

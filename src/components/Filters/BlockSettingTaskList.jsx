@@ -2,13 +2,19 @@ import React from 'react';
 import './BlockSettingTaskList.css';
 import TaskFilterStatus from './TaskFilterStatus';
 import TaskFilterImportant from './TaskFilterImportant';
+import ClearFilter from './ClearFilterBtn/ClearFilter';
+// import { useSelector } from 'react-redux';
 
 
 
-const BlockSettingTaskList = ({updateFilterStatus, filterStatusMap, filterStatus, updateFilterImportant, filterImportantMap, filterImportant}) => {
+const BlockSettingTaskList = ({resetAllFilters, updateFilterStatus, filterStatusMap, filterStatus, updateFilterImportant, filterImportantMap, filterImportant}) => {
+
+  // const {settingTaskList} = useSelector((state) => (state.tasks));
+
 
   return (
     <div className='setting-list__wrapper'>
+      <ClearFilter resetAllFilters={resetAllFilters} />
       <TaskFilterStatus updateFilterStatus={updateFilterStatus} filterStatusMap={filterStatusMap} filterStatus={filterStatus} />
       <TaskFilterImportant updateFilterImportant={updateFilterImportant} filterImportantMap={filterImportantMap} filterImportant={filterImportant} />
     </div>
