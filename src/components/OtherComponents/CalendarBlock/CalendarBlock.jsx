@@ -1,5 +1,6 @@
 import React from 'react';
 import dayjs from 'dayjs';
+import 'dayjs/locale/de';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
@@ -10,7 +11,7 @@ const CalendarBlock = () => {
   const [value, setValue] = React.useState(dayjs(new Date));
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
+    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="de">
       <DateCalendar value={value} onChange={(newValue) => setValue(newValue)} />
     </LocalizationProvider>
 
