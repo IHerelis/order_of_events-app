@@ -1,6 +1,7 @@
 .task-add__container {
   padding-block: 10px;
-  max-width: 600px;
+  /* max-width: 600px; */
+  width: 600px;
   margin: 0 auto;
 }
 

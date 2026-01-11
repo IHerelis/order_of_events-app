@@ -5,6 +5,7 @@ import TaskAdd from '../Forms/task-form/task-add';
 import TaskItem from './TaskItem';
 import BlockSettingTaskList from '../Filters/BlockSettingTaskList';
 import { resetSettingTaskList, updateSettingTaskList } from '../../slices/tasksSlice';
+import CalendarBlock from '../OtherComponents/CalendarBlock/CalendarBlock';
 
 
 const filterStatusMap = {
@@ -52,10 +53,18 @@ const TaskList = () => {
 
   return (
     <div className='task-list__container'>
-      <TaskAdd /> 
-      {!taskList.length &&
-        <h2 className='todo-promotion'>Додавайте завдання і вперед !</h2>
-      }
+      <div className='task-list__tools'>
+        <div className='tools__calendar'>
+          <CalendarBlock />
+        </div>
+        <div className='tools__add-task'>
+          <TaskAdd /> 
+          {!taskList.length &&
+            <h2 className='todo-promotion'>Додавайте завдання і вперед !</h2>
+          }
+        </div>
+      </div>
+    
       {taskList.length > 0 && 
       <>
           <BlockSettingTaskList 
