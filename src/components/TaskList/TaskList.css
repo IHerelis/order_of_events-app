@@ -20,9 +20,9 @@
   box-shadow: 0px 0px 10px rgb(40, 141, 40);
 }
 
-/* .tools__add-task {
-
-} */
+.tools__add-task {
+  width: 600px;
+}
 
 .todo-promotion {
   padding: 15px 20px;

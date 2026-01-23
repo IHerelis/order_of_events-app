@@ -13,6 +13,7 @@ const ModalUpdateTask = ({task, showModal, handleShowModal}) => {
         onClose={handleShowModal}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        fullWidth
         // maxWidth="lg"
       >
         <DialogTitle id="alert-dialog-title">
