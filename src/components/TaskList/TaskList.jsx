@@ -22,6 +22,11 @@ const filterImportantMap = {
   TaskDontImportant: (task) => !task.taskImportant,
 };
 
+const filterGroupMapAction = (item, filterItem) => {
+  if (filterItem === "" || filterItem === 'general') {
+    return true;
+  } else {return item.group === filterItem}
+}
 
 
 const TaskList = () => {
@@ -33,6 +38,8 @@ const TaskList = () => {
 
   const [filterStatus, setFilterStatus] = useState(settingTaskList.filterStatus || 'All');
   const [filterImportant, setFilterImportant] = useState(settingTaskList.filterImportant || 'All');
+  const [filterGroup, setFilterGroup] = useState('');
+
 
   const updateFilterStatus = (itemState) => {
     setFilterStatus(itemState);
@@ -48,6 +55,7 @@ const TaskList = () => {
     dispatch(resetSettingTaskList());
     setFilterStatus('All');
     setFilterImportant('All');
+    setFilterGroup('');
   }
 
 
@@ -70,12 +78,13 @@ const TaskList = () => {
           <BlockSettingTaskList 
             updateFilterStatus={updateFilterStatus} filterStatusMap={filterStatusMap} filterStatus={filterStatus}
             updateFilterImportant={updateFilterImportant} filterImportantMap={filterImportantMap} filterImportant={filterImportant}
-            resetAllFilters={resetAllFilters}
+            resetAllFilters={resetAllFilters} filterGroup={filterGroup} setFilterGroup={setFilterGroup} 
           />
           <ul className='task-list'>
             {taskList && 
               taskList.filter(filterStatusMap[filterStatus])
                 .filter(filterImportantMap[filterImportant])
+                .filter((item) => filterGroupMapAction(item, filterGroup))
                 .map((item) => <TaskItem {...item}
                 key={item.id}
                 />

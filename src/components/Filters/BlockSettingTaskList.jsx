@@ -3,11 +3,12 @@ import './BlockSettingTaskList.css';
 import TaskFilterStatus from './TaskFilterStatus';
 import TaskFilterImportant from './TaskFilterImportant';
 import ClearFilter from './ClearFilterBtn/ClearFilter';
+import TaskGroupFilter from './TaskGroupFilter';
 // import { useSelector } from 'react-redux';
 
 
 
-const BlockSettingTaskList = ({resetAllFilters, updateFilterStatus, filterStatusMap, filterStatus, updateFilterImportant, filterImportantMap, filterImportant}) => {
+const BlockSettingTaskList = ({resetAllFilters, updateFilterStatus, filterStatusMap, filterStatus, updateFilterImportant, filterImportantMap, filterImportant, filterGroup, setFilterGroup}) => {
 
   // const {settingTaskList} = useSelector((state) => (state.tasks));
 
@@ -17,6 +18,7 @@ const BlockSettingTaskList = ({resetAllFilters, updateFilterStatus, filterStatus
       <ClearFilter resetAllFilters={resetAllFilters} />
       <TaskFilterStatus updateFilterStatus={updateFilterStatus} filterStatusMap={filterStatusMap} filterStatus={filterStatus} />
       <TaskFilterImportant updateFilterImportant={updateFilterImportant} filterImportantMap={filterImportantMap} filterImportant={filterImportant} />
+      <TaskGroupFilter currentGroup={filterGroup} setFilterGroup={setFilterGroup} />
     </div>
   );
 }

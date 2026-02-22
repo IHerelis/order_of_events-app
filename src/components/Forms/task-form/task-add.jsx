@@ -2,8 +2,8 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from "yup";
 import './task-add.css';
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addTask, upDateTask } from '../../../slices/tasksSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTask, addTaskGroup, upDateTask } from '../../../slices/tasksSlice';
 
 const initialValues = {
   taskTitle: "",
@@ -11,20 +11,16 @@ const initialValues = {
   taskImportant: false,
   done: false,
   status: "new",                    /* "new", "progress" , "not_done", "done" */
-  group: "",                        /* "...user task group" */
+  group: "",                       /* "...user task group" */
 }
 
 
 const TaskAdd = ({task=false, handleShowModal}) => {
-  // console.log("TaskAdd");
-  // console.log("task on TaskAdd", task);
-
-  // useEffect(() => {
-  //   console.log("change the task", task);
-  // }, [task]);
-
   
   const dispatch = useDispatch();
+  
+  const {taskGroupsList} = useSelector((state) => (state.tasks));
+
 
   const [currentValues, setCarrentValues] = useState(!task ? initialValues :
      {
@@ -54,10 +50,12 @@ const TaskAdd = ({task=false, handleShowModal}) => {
     if (!values.id) {
         // console.log("submit values", values);
         dispatch(addTask(values));
+        dispatch(addTaskGroup(values));
         formikBag.resetForm(); 
       } else {
           // console.log("update values", values);
           dispatch(upDateTask(values));
+          dispatch(addTaskGroup(values));
           formikBag.resetForm();  
           handleShowModal();
         }  
@@ -94,13 +92,32 @@ const TaskAdd = ({task=false, handleShowModal}) => {
               </div>
               <ErrorMessage name="taskNote" component="div" className='task-form-error' />
 
-              <div className='task-form__field-important'>
-                <Field 
-                  id={getModdedPrefixId(task, 'form__field__task-important')} 
-                  type='checkbox' 
-                  name='taskImportant' 
-                />
-                <label htmlFor={getModdedPrefixId(task, 'form__field__task-important')} >Важливе ?!.</label>
+              <div className='task-form__buttons'>
+                <div className='task-form__field-important'>
+                  <Field 
+                    id={getModdedPrefixId(task, 'form__field__task-important')} 
+                    type='checkbox' 
+                    name='taskImportant' 
+                  />
+                  <label htmlFor={getModdedPrefixId(task, 'form__field__task-important')} >Важливе ?!.</label>
+                </div>
+                <div className='task-form__field-group'>
+                  <label htmlFor='form__field__task-group'>Додати до групи:</label>
+                  <Field 
+                    as='input'
+                    type='text' 
+                    name='group' 
+                    id='form__field__task-group'
+                    list='task-group'
+                  />
+                  <datalist id='task-group'>
+                    {taskGroupsList && 
+                      taskGroupsList.map((item, index) => <option value={item} key={index} />)
+                    }
+                    {/* <option value='власна група' />
+                    <option value='загальна група' /> */}
+                  </datalist>   
+                </div>
               </div>
 
               {!task ? 

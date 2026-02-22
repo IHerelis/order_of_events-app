@@ -1,9 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { nanoid } from "nanoid";
 
+const upDateTaskGroupsList = (list) => {
+  return [...new Set(list.map((task) => {return task.group}))]
+};
+
 const initialState = {
   taskList: JSON.parse(localStorage.getItem('TaskList')) || [],
   settingTaskList: JSON.parse(localStorage.getItem('SettingTaskList')) || {},
+  taskGroupsList: [...new Set((JSON.parse(localStorage.getItem('TaskList'))).map((task) => {return task.group}))] || [''],
 }
 
 
@@ -19,6 +24,8 @@ export const TasksSlice = createSlice({
     removeTask: (state, action) => {
       state.taskList = state.taskList.filter(task => task.id !== action.payload.id);
       localStorage.setItem("TaskList", JSON.stringify(state.taskList));
+
+      state.taskGroupsList = upDateTaskGroupsList(state.taskList);
     },
     upDateTask: (state, action) => {
       state.taskList = state.taskList.map(task => {
@@ -27,6 +34,8 @@ export const TasksSlice = createSlice({
         }
       );
       localStorage.setItem("TaskList", JSON.stringify(state.taskList));
+
+      state.taskGroupsList = upDateTaskGroupsList(state.taskList);
     },
     completeTask: (state, action) => {
       state.taskList.map((item) => {
@@ -57,9 +66,17 @@ export const TasksSlice = createSlice({
       state.settingTaskList = {};
       localStorage.setItem("SettingTaskList", JSON.stringify(state.settingTaskList));
     },
+
+
+    addTaskGroup: (state, action) => {
+      if (!state.taskGroupsList.includes(action.payload.group)) {
+        state.taskGroupsList.push(action.payload.group);
+      }
+      localStorage.setItem("TaskGroupsList", JSON.stringify(state.taskGroupsList));
+    },
   }
 })
 
 
-export const {addTask, removeTask, upDateTask, completeTask, progressTask, updateSettingTaskList, resetSettingTaskList} = TasksSlice.actions;
+export const {addTask, removeTask, upDateTask, completeTask, progressTask, updateSettingTaskList, resetSettingTaskList, addTaskGroup} = TasksSlice.actions;
 export default TasksSlice.reducer;

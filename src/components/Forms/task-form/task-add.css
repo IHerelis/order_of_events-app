@@ -30,6 +30,7 @@
   border: 1px solid grey;
   box-shadow: 2px 2px 5px grey;
   border-radius: 5px;
+  outline-color: gray;
 }
 
 .task-form__field textarea {
@@ -39,6 +40,14 @@
   border: 1px solid grey;
   box-shadow: 2px 2px 5px grey;
   border-radius: 5px;
+  outline-color: gray;
+}
+
+.task-form__buttons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .task-form__field-important {
@@ -76,6 +85,22 @@
 .task-form__field-important input[type="checkbox"]:checked + label::before {
   background: url(../../../assets/icons/check-mark-3-16.png) center / 16px no-repeat;
   border: 1.5px solid green;
+}
+
+.task-form__field-group{
+  padding: 5px;
+}
+
+.task-form__field-group label {
+  padding-inline: 5px;
+}
+
+.task-form__field-group input {
+  padding: 3px 5px;
+  border: 1px solid grey;
+  box-shadow: 2px 2px 5px grey;
+  border-radius: 3px;
+  outline-color: gray;
 }
 
 .task-form-error {

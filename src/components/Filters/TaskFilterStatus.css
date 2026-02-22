@@ -1,10 +1,10 @@
 .filter-status__wrapper {
-  padding: 8px 16px;
+  padding: 8px;
   background-color: rgb(240, 238, 238);
   border-radius: 5px;
   box-shadow: 0px 0px 3px grey;
   display: flex;
-  gap: 20px;
+  gap: 12px;
 
 }
 
