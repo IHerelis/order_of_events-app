@@ -1,4 +1,38 @@
 .home-page__container {
-  /* padding-top: 1rem; */
+  padding-top: 1rem;
   padding-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+  margin-inline: -20px;
+  padding-inline: 20px;
+}
+
+
+/* ========== dinamic-light ============ */
+.dinamic-light__wrapper {
+  position: absolute;
+  inset: 0;
+  min-height: 100%;
+  width: 100%;
+  z-index: -1;
+  /* background-attachment: fixed;
+  background: linear-gradient(to right,lab(9% 0 0) 1px,transparent 1px),linear-gradient(to bottom,lab(9% 0 0) 1px,transparent 1px);
+  background-size: 45px 45px; */
+  transition: all 0.3s linear;
+}
+
+.light__structure {
+  position: absolute;
+  inset: 0;
+  background-attachment: fixed;
+  background: linear-gradient(to right,lab(66.9756% -58.27 19.5419) 2px,transparent 1px),linear-gradient(to bottom,lab(66.9756% -58.27 19.5419) 2px,transparent 1px);
+  background-size: 45px 45px;
+  opacity: 0;
+}
+
+.light__structure:hover {
+  mask-image: radial-gradient(
+    250px at var(--mouse-x, 0) var(--mouse-y, 0),black , transparent);
+  opacity: 1;
+  transition: all 0.3s linear;
 }

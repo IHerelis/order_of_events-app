@@ -8,7 +8,7 @@
 
 .main-block-wrapper > header {
   background-color: #333;
-  /* height: 50px; */
+  min-height: 60px;
   width: 100%;
   z-index: 5;
   opacity: 0.9;
@@ -35,9 +35,9 @@
   /* max-width: 1360px; */
   margin: 0 auto;
   width: 100%;
-  padding-top: 4.375rem;
+  padding-top: 3.75rem;
   padding-inline: 1.25rem;
-  padding-bottom: 1.25rem;
+  /* padding-bottom: 1.25rem; */
 }
 
 
