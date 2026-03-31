@@ -17,10 +17,10 @@
 }
 
 .tools__calendar {
-  height: 234px;
-  overflow-y: scroll;
-  padding-block: 5px;
+  height: 242px;
+  width: 300px;
   box-shadow: 0px 0px 10px rgb(40, 141, 40);
+  border-radius: 10px;
 }
 
 .tools__add-task {
