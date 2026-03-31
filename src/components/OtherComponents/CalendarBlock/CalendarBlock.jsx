@@ -28,13 +28,16 @@ const CalendarBlock = () => {
             mb: '2px',
             minHeight: '32px',
             maxHeight: '32px',
+            pl: '34px',
+            pr: '22px',
+
           },
           '& .MuiPickersCalendarHeader-root .MuiButtonBase-root': {
             p: '4px',
           },
 
           '& .MuiDayCalendar-header': {
-            pl: '24px',
+            pl: '22px',
             pr: '22px',
           },
           '& .MuiDayCalendar-header .MuiDayCalendar-weekDayLabel': {
